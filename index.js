@@ -70,6 +70,7 @@ module.exports = {
     'css-modules',
     '@html-eslint',
     'disable-autofix',
+    '@babel',
   ],
   ignorePatterns: [
     '!.*',
