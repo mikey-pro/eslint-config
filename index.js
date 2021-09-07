@@ -78,6 +78,9 @@ module.exports = {
     'vendor',
     'dist',
     'package-lock.json',
+    'LICENSE',
+    '.vscode',
+    '.github',
   ],
   settings: {
     'json/sort-package-json': 'pro',
