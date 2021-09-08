@@ -1,7 +1,7 @@
 {
-  "name": "@mikey-pro/eslint-config-babel",
-  "version": "1.1.3",
-  "description": "Mikey Pro ESLint configuration with Babel",
+  "name": "@mikey-pro/eslint-config",
+  "version": "1.2.0",
+  "description": "Mikey Pro ESLint configuration",
   "peerDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/eslint-parser": "^7.0",
@@ -39,7 +39,7 @@
     "url": "https://github.com/mikey-pro/eslint-config/issues"
   },
   "keywords": [
-    "@mikey-pro/eslint-config-babel",
+    "@mikey-pro/eslint-config",
     "@mikey-pro",
     "mikey-pro",
     "mikey",
@@ -48,7 +48,6 @@
     "eslintconfig",
     "eslint",
     "config",
-    "babel",
     "style-guide",
     "style",
     "guide"

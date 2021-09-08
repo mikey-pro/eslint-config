@@ -10,18 +10,18 @@
   <br />
 </div>
 
-## **@mikey-pro/eslint-config-babel**
+## **@mikey-pro/eslint-config**
 
-A preset ESLint configuration with Babel for use with the Mikey Pro style guide
+A preset ESLint configuration for use with the Mikey Pro style guide
 
 ## Usage
 
 ### Install
 
 ```shell
-npm i -D @mikey-pro/eslint-config-babel
+npm i -D @mikey-pro/eslint-config
 
-yarn add -D @mikey-pro/eslint-config-babel
+yarn add -D @mikey-pro/eslint-config
 ```
 
 ### Configure
@@ -32,7 +32,7 @@ Extend to ESLint in `package.json`:
 {
   "eslintConfig": {
     "extends": [
-      "@mikey-pro/eslint-config-babel"
+      "@mikey-pro/eslint-config"
     ]
   }
 }
