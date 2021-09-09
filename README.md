@@ -19,7 +19,7 @@ A preset ESLint configuration for use with the Mikey Pro style guide
 
 <a href="https://www.npmjs.com/package/@mikey-pro/eslint-config"><img src="https://img.shields.io/bundlephobia/min/@mikey-pro/eslint-config?color=9987d8&label=package%20size&logo=ok&style=for-the-badge" alt="Package size badge" width="150px" /></a>
 
-<a href="https://www.npmjs.com/package/@mikey-pro/eslint-config"><img src="https://img.shields.io/librariesio/release/npm/@mikey-pro/eslint-config?color=5dacb7&style=for-the-badge" alt="Package size badge" width="150px" /></a>
+<a href="https://www.npmjs.com/package/@mikey-pro/eslint-config"><img src="https://img.shields.io/librariesio/release/npm/@mikey-pro/eslint-config?color=5dacb7&style=for-the-badge" alt="Package size badge" width="150px" height="50px" /></a>
 
 ## Usage
 
