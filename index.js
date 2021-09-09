@@ -61,6 +61,21 @@ module.exports = {
     'class-methods-use-this': 'off',
     'no-underscore-dangle': 'off',
     'import/extensions': 'off',
+    'spaced-comment': [
+      'error',
+      'always',
+      {
+        line: {
+          markers: ['/'],
+          exceptions: ['-', '+'],
+        },
+        block: {
+          markers: ['!'],
+          exceptions: ['*'],
+          balanced: true,
+        },
+      },
+    ],
     'prettier/prettier': ['error'],
   },
   plugins: [
@@ -100,6 +115,6 @@ module.exports = {
           },
         ],
       ],
-    }
-  }
+    },
+  },
 };
