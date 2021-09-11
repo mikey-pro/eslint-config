@@ -8,7 +8,7 @@
     <a href="https://github.com/mikey-pro/theme">Theme</a>
   </h3>
   <a href="https://github.com/mikey-pro">
-    <img src="img/mikey-pro-logo.svg" style="width: 275px" alt="Mikey Pro Logo" />
+    <img src="img/mikey-pro-logo.svg" style="height: 75px" alt="Mikey Pro Logo" />
   </a>
   <br />
 </div>
