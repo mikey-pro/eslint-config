@@ -51,6 +51,8 @@ module.exports = {
     browser: true,
     node: true,
     es6: true,
+    commonjs: true,
+    es2021: true,
   },
   rules: {
     'no-unused-vars': 'warn',
