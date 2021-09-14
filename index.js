@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     'airbnb-base',
+    'standard',
     'eslint:recommended',
     'plugin:sonarjs/recommended',
     'plugin:compat/recommended',
