@@ -15,7 +15,7 @@
 
 ## **@mikey-pro/eslint-config**
 
-A preset ESLint configuration for use with the Mikey Pro style guide
+A preset ESLint configuration
 
 <div>
   <a href="https://www.npmjs.com/package/@mikey-pro/eslint-config"
