@@ -1,9 +1,9 @@
 {
   "name": "@mikey-pro/eslint-config",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Mikey Pro ESLint configuration",
   "peerDependencies": {
-    "@babel/core": "^7.15.5",
+    "@babel/core": "^7.15.8",
     "@babel/eslint-parser": "^7.15",
     "@babel/eslint-plugin": "^7.14",
     "@babel/preset-env": "^7.15",
@@ -16,7 +16,7 @@
     "eslint-import-resolver-alias": "^1.1",
     "eslint-plugin-compat": "^3.13",
     "eslint-plugin-css-modules": "^2.11",
-    "eslint-plugin-disable-autofix": "^0.1.3",
+    "eslint-plugin-disable-autofix": "^0.1.4",
     "eslint-plugin-import": "^2.24",
     "eslint-plugin-json": "^3.1",
     "eslint-plugin-json-format": "^2.0",
