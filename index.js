@@ -37,6 +37,7 @@ module.exports = {
       parser: '@html-eslint/parser',
       extends: ['plugin:@html-eslint/recommended'],
       rules: {
+        'spaced-comment': 'off',
         '@html-eslint/indent': 'off',
         '@html-eslint/no-extra-spacing-attrs': 'off',
         '@html-eslint/require-closing-tags': 'off',
