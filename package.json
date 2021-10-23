@@ -2,7 +2,7 @@
   "name": "@mikey-pro/eslint-config",
   "version": "1.5.2",
   "description": "Mikey Pro ESLint configuration",
-  "peerDependencies": {
+  "dependencies": {
     "@babel/core": "^7.15.8",
     "@babel/eslint-parser": "^7.15",
     "@babel/eslint-plugin": "^7.14",
