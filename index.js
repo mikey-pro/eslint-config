@@ -237,9 +237,7 @@ module.exports = {
         'airbnb',
       ],
       plugins: [
-        [
-          '@vue/babel-plugin-jsx'
-        ],
+        ['@vue/babel-plugin-jsx'],
         [
           '@babel/plugin-transform-react-jsx',
           {
