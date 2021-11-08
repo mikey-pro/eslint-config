@@ -233,6 +233,13 @@ module.exports = {
             },
           },
         ],
+        '@babel/preset-react',
+        'airbnb',
+      ],
+      plugins: [
+        [
+          '@vue/babel-plugin-jsx'
+        ],
         [
           '@babel/plugin-transform-react-jsx',
           {
@@ -240,10 +247,7 @@ module.exports = {
             pragmaFrag: 'Fragment',
           },
         ],
-        '@babel/preset-react',
-        'airbnb',
       ],
-      plugins: [['@vue/babel-plugin-jsx']],
     },
   },
 };
