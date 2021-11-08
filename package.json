@@ -15,6 +15,7 @@
     "eslint": "^7.5.0",
     "babel-preset-airbnb": "^5.0.0",
     "eslint-config-prettier": "^8.3",
+    "eslint-config-airbnb": "^18.2",
     "eslint-config-standard": "16.0.3",
     "eslint-import-resolver-alias": "^1.1",
     "eslint-plugin-compat": "^3.13",
