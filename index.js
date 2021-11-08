@@ -3,6 +3,7 @@ module.exports = {
     'airbnb-base',
     'standard',
     'eslint:recommended',
+    'plugin:github/recommended',
     'plugin:sonarjs/recommended',
     'plugin:compat/recommended',
     'plugin:css-modules/recommended',
@@ -150,6 +151,7 @@ module.exports = {
     '@html-eslint',
     'disable-autofix',
     '@babel',
+    'github',
   ],
   ignorePatterns: [
     '!.*',
