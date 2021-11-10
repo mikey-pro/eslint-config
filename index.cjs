@@ -230,6 +230,7 @@ module.exports = {
           camelCase: true,
           pascalCase: true,
         },
+        ignore: ['README.md'],
       },
     ],
     'prettier/prettier': ['error'],
