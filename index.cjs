@@ -81,12 +81,7 @@ module.exports = {
     es2021: true,
   },
   rules: {
-    camelcase: [
-      'error',
-      {
-        allow: ['id_'],
-      },
-    ],
+    camelcase: 0,
     'no-console': 'off',
     'func-names': 'off',
     'no-process-exit': 'off',
