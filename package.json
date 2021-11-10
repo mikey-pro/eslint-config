@@ -37,7 +37,7 @@
     "vue-eslint-parser": "^8.0"
   },
   "files": [
-    "index.js",
+    "index.cjs",
     "README.md",
     "LICENSE"
   ],

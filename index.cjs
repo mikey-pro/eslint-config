@@ -81,6 +81,12 @@ module.exports = {
     es2021: true,
   },
   rules: {
+    camelcase: [
+      'error',
+      {
+        allow: ['id_'],
+      },
+    ],
     'no-console': 'off',
     'func-names': 'off',
     'no-process-exit': 'off',
@@ -122,6 +128,7 @@ module.exports = {
     'no-useless-computed-key': 1,
     'no-useless-concat': 1,
     'no-useless-constructor': 1,
+    'state-in-constructor': 0,
     'no-useless-escape': 1,
     'no-useless-rename': 1,
     'no-var': 1,
@@ -195,6 +202,15 @@ module.exports = {
     'react/no-string-refs': 2,
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 1,
+    'unicorn/filename-case': [
+      'error',
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true,
+        },
+      },
+    ],
     'prettier/prettier': ['error'],
   },
   plugins: [
