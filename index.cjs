@@ -258,6 +258,7 @@ module.exports = {
   ],
   settings: {
     'json/sort-package-json': 'pro',
+    polyfills: ['Promise'],
   },
   parser: '@babel/eslint-parser',
   parserOptions: {
