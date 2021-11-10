@@ -87,6 +87,10 @@ module.exports = {
     'no-process-exit': 'off',
     'class-methods-use-this': 'off',
     'no-underscore-dangle': 'off',
+    'import/no-unresolved': [
+      2,
+      { commonjs: true, amd: true, ignore: ['^node:'] },
+    ],
     'import/extensions': 'off',
     'constructor-super': 2,
     'no-caller': 2,
