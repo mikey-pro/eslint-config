@@ -2,6 +2,7 @@
   "name": "@mikey-pro/eslint-config",
   "version": "2.1.0",
   "description": "Mikey Pro ESLint configuration",
+  "main": "index.cjs",
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16",
