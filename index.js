@@ -3,6 +3,7 @@ module.exports = {
     'airbnb',
     'standard',
     'eslint:recommended',
+    'plugin:unicorn/all',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
@@ -206,6 +207,7 @@ module.exports = {
     '@babel',
     'react',
     'react-hooks',
+    'unicorn',
   ],
   ignorePatterns: [
     '!.*',
@@ -223,6 +225,8 @@ module.exports = {
   parser: '@babel/eslint-parser',
   parserOptions: {
     requireConfigFile: false,
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     babelOptions: {
       presets: [
         [
@@ -237,7 +241,7 @@ module.exports = {
         'airbnb',
       ],
       plugins: [
-        ['@vue/babel-plugin-jsx'],
+        '@vue/babel-plugin-jsx',
         [
           '@babel/plugin-transform-react-jsx',
           {
