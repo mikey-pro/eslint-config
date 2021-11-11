@@ -72,6 +72,17 @@ module.exports = {
         'prettier/prettier': 'off',
       },
     },
+    {
+      files: ['*.svelte'],
+      processor: 'svelte3/svelte3'
+      rules: {
+        'import/first': 'off',
+        'import/no-duplicates': 'off',
+        'import/no-mutable-exports': 'off',
+        'import/no-unresolved': 'off',
+        'prettier/prettier': 'off',
+      }
+    },
   ],
   env: {
     browser: true,
@@ -247,6 +258,7 @@ module.exports = {
     'react',
     'react-hooks',
     'unicorn',
+    'svelte3',
   ],
   ignorePatterns: [
     '!.*',
