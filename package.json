@@ -36,7 +36,8 @@
     "eslint-plugin-svelte3": "^3.2.1",
     "eslint-plugin-unicorn": "^38.0.1",
     "eslint-plugin-vue": "^8.0",
-    "vue-eslint-parser": "^8.0"
+    "vue-eslint-parser": "^8.0",
+    "svelte": "^3.44.1"
   },
   "files": [
     "index.cjs",
