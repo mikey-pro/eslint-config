@@ -213,6 +213,7 @@ module.exports = {
         allowArrowFunctions: true,
       },
     ],
+    'react/function-component-definition': 0,
     'react/state-in-constructor': 0,
     'react/jsx-no-comment-textnodes': 2,
     'react/jsx-no-duplicate-props': 2,
