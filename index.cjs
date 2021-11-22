@@ -260,6 +260,7 @@ module.exports = {
     'react-hooks',
     'unicorn',
     'svelte3',
+    'sonarjs',
   ],
   ignorePatterns: [
     '!.*',
