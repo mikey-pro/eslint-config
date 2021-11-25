@@ -4,12 +4,13 @@ module.exports = {
     'standard',
     'eslint:recommended',
     'plugin:unicorn/all',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
+    'plugin:github/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:sonarjs/recommended',
     'plugin:compat/recommended',
     'plugin:css-modules/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
   overrides: [
@@ -99,10 +100,6 @@ module.exports = {
         message:
           'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
       },
-      //  {
-      //    selector: 'ForOfStatement',
-      //    message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
-      //  },
       {
         selector: 'LabeledStatement',
         message:
@@ -261,6 +258,7 @@ module.exports = {
     'unicorn',
     'svelte3',
     'sonarjs',
+    'github',
   ],
   ignorePatterns: [
     '!.*',
