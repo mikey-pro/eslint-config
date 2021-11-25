@@ -233,6 +233,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 1,
     'unicorn/import-index': ['error', { ignoreImports: true }],
+    'filenames/match-regex': 0,
     'unicorn/filename-case': [
       'error',
       {
