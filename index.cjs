@@ -20,7 +20,7 @@ module.exports = {
       extends: ['plugin:md/recommended'],
       rules: {
         'md/remark': [
-          'error',
+          2,
           {
             plugins: [
               'preset-lint-markdown-style-guide',
@@ -28,13 +28,13 @@ module.exports = {
             ],
           },
         ],
-        'prettier/prettier': ['error', { parser: 'markdown' }],
+        'prettier/prettier': [2, { parser: 'markdown' }],
       },
     },
     {
       files: ['*.md.json'],
       rules: {
-        'prettier/prettier': ['error', { parser: 'json' }],
+        'prettier/prettier': [2, { parser: 'json' }],
       },
     },
     {
@@ -42,15 +42,15 @@ module.exports = {
       parser: '@html-eslint/parser',
       extends: ['plugin:@html-eslint/recommended'],
       rules: {
-        'spaced-comment': 'off',
-        '@html-eslint/indent': 'off',
-        '@html-eslint/no-extra-spacing-attrs': 'off',
-        '@html-eslint/require-closing-tags': 'off',
+        'spaced-comment': 0,
+        '@html-eslint/indent': 0,
+        '@html-eslint/no-extra-spacing-attrs': 0,
+        '@html-eslint/require-closing-tags': 0,
         'disable-autofix/@html-eslint/require-closing-tags': [
-          'error',
+          2,
           { selfClosing: 'always' },
         ],
-        'prettier/prettier': ['error', { parser: 'html' }],
+        'prettier/prettier': [2, { parser: 'html' }],
       },
     },
     {
@@ -59,7 +59,7 @@ module.exports = {
       extends: ['plugin:vue/vue3-recommended', '@vue/airbnb'],
       rules: {
         'vue/html-self-closing': [
-          'error',
+          2,
           {
             html: {
               void: 'always',
@@ -70,18 +70,18 @@ module.exports = {
             math: 'always',
           },
         ],
-        'prettier/prettier': 'off',
+        'prettier/prettier': 0,
       },
     },
     {
       files: ['*.svelte'],
       processor: 'svelte3/svelte3',
       rules: {
-        'import/first': 'off',
-        'import/no-duplicates': 'off',
-        'import/no-mutable-exports': 'off',
-        'import/no-unresolved': 'off',
-        'prettier/prettier': 'off',
+        'import/first': 0,
+        'import/no-duplicates': 0,
+        'import/no-mutable-exports': 0,
+        'import/no-unresolved': 0,
+        'prettier/prettier': 0,
       },
     },
   ],
@@ -94,7 +94,7 @@ module.exports = {
   },
   rules: {
     'no-restricted-syntax': [
-      'error',
+      2,
       {
         selector: 'ForInStatement',
         message:
@@ -112,16 +112,28 @@ module.exports = {
       },
     ],
     camelcase: 0,
-    'no-console': 'off',
-    'func-names': 'off',
-    'no-process-exit': 'off',
-    'class-methods-use-this': 'off',
-    'no-underscore-dangle': 'off',
+    'no-console': 0,
+    'func-names': 0,
+    'no-process-exit': 0,
+    'class-methods-use-this': 0,
+    'no-underscore-dangle': 0,
     'import/no-unresolved': [
       2,
       { commonjs: true, amd: true, ignore: ['^node:'] },
     ],
-    'import/extensions': 'off',
+    'import/order': [
+      2,
+      {
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always',
+      },
+    ],
+    'import/extensions': ['error', 'always', { ignorePackages: true }],
+    'import/no-commonjs': 0,
+    'sort-imports': 0,
     'constructor-super': 2,
     'no-caller': 2,
     'no-const-assign': 2,
@@ -185,7 +197,7 @@ module.exports = {
     'unicode-bom': 2,
     'valid-jsdoc': 0,
     'spaced-comment': [
-      'error',
+      2,
       'always',
       {
         line: {
@@ -232,10 +244,10 @@ module.exports = {
     'react/no-string-refs': 2,
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 1,
-    'unicorn/import-index': ['error', { ignoreImports: true }],
+    'unicorn/import-index': [2, { ignoreImports: true }],
     'filenames/match-regex': 0,
     'unicorn/filename-case': [
-      'error',
+      2,
       {
         cases: {
           camelCase: true,
@@ -244,7 +256,7 @@ module.exports = {
         ignore: ['README.md'],
       },
     ],
-    'prettier/prettier': ['error'],
+    'prettier/prettier': [2],
   },
   plugins: [
     'import',
