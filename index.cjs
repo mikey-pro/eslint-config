@@ -49,28 +49,7 @@ module.exports = {
     {
       files: ['*.jsx'],
       extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
-       babelOptions: {
-          presets: [
-            [
-              '@babel/preset-env',
-              {
-                targets: {
-                  node: 'current',
-                },
-              },
-            ],
-          ],
-          plugins: [
-            '@vue/babel-plugin-jsx',
-            [
-              '@babel/plugin-transform-react-jsx',
-              {
-                pragma: 'h',
-                pragmaFrag: 'Fragment',
-              },
-            ],
-          ],
-        },
+      plugins: ['react', 'react-hooks'],
       parser: '@babel/eslint-parser',
       parserOptions: {
         requireConfigFile: false,
@@ -88,6 +67,15 @@ module.exports = {
             ],
             '@babel/preset-react',
             'airbnb',
+          ],
+          plugins: [
+            [
+              '@babel/plugin-transform-react-jsx',
+              {
+                pragma: 'h',
+                pragmaFrag: 'Fragment',
+              },
+            ],
           ],
         },
       },
