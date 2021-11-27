@@ -50,6 +50,26 @@ module.exports = {
       files: ['*.jsx'],
       extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
       plugins: ['react', 'react-hooks'],
+      parser: '@babel/eslint-parser',
+      parserOptions: {
+        requireConfigFile: false,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        babelOptions: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  node: 'current',
+                },
+              },
+            ],
+            '@babel/preset-react',
+            'airbnb',
+          ],
+        },
+     },
       rules: {
         'react/no-deprecated': 2,
         'react/react-in-jsx-scope': 0,
@@ -130,6 +150,34 @@ module.exports = {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
       extends: ['plugin:vue/vue3-recommended', '@vue/airbnb'],
+      parser: '@babel/eslint-parser',
+      parserOptions: {
+        requireConfigFile: false,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        babelOptions: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  node: 'current',
+                },
+              },
+            ],
+          ],
+          plugins: [
+            '@vue/babel-plugin-jsx',
+            [
+              '@babel/plugin-transform-react-jsx',
+              {
+                pragma: 'h',
+                pragmaFrag: 'Fragment',
+              },
+            ],
+          ],
+        },
+     },
       rules: {
         'vue/html-self-closing': [
           2,
@@ -358,18 +406,7 @@ module.exports = {
             },
           },
         ],
-        '@babel/preset-react',
         'airbnb',
-      ],
-      plugins: [
-        '@vue/babel-plugin-jsx',
-        [
-          '@babel/plugin-transform-react-jsx',
-          {
-            pragma: 'h',
-            pragmaFrag: 'Fragment',
-          },
-        ],
       ],
     },
   },
