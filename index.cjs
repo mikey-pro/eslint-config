@@ -126,7 +126,6 @@ module.exports = {
       {
         alphabetize: {
           order: 'asc',
-          caseInsensitive: true,
         },
         'newlines-between': 'always',
       },
