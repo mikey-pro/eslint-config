@@ -75,6 +75,9 @@
     "vue",
     "svelte"
   ],
+   "browserslist": [
+   "defaults"
+  ],
   "contributors": [
     "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
   ]
