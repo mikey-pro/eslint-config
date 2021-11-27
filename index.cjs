@@ -9,11 +9,59 @@ module.exports = {
     'plugin:sonarjs/recommended',
     'plugin:compat/recommended',
     'plugin:css-modules/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
   overrides: [
+    {
+      files: ['*.css'],
+      rules: {
+        'prettier/prettier': [2, { parser: 'css' }],
+      },
+    },
+    {
+      files: ['*.scss'],
+      rules: {
+        'prettier/prettier': [2, { parser: 'scss' }],
+      },
+    },
+    {
+      files: ['*.less'],
+      rules: {
+        'prettier/prettier': [2, { parser: 'less' }],
+      },
+    },
+    {
+      files: ['*.yaml', '*.yml'],
+      plugins: ['yaml'],
+      extends: ['plugin:yaml/recommended'],
+      rules: {
+        'prettier/prettier': [2, { parser: 'yaml' }],
+      },
+    },
+    {
+      files: ['*.toml'],
+      parser: 'toml-eslint-parser',
+      extends: ['plugin:toml/standard'],
+      rules: {
+        'prettier/prettier': [2],
+      },
+    },
+    {
+      files: ['*.jsx'],
+      extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
+      plugins: ['react', 'react-hooks'],
+      rules: {
+        'spaced-comment': 0,
+        '@html-eslint/indent': 0,
+        '@html-eslint/no-extra-spacing-attrs': 0,
+        '@html-eslint/require-closing-tags': 0,
+        'disable-autofix/@html-eslint/require-closing-tags': [
+          2,
+          { selfClosing: 'always' },
+        ],
+        'prettier/prettier': [2, { parser: 'html' }],
+      },
+    },
     {
       files: ['*.md'],
       parser: 'markdown-eslint-parser',
@@ -41,6 +89,7 @@ module.exports = {
       files: ['*.html'],
       parser: '@html-eslint/parser',
       extends: ['plugin:@html-eslint/recommended'],
+      plugins: ['@html-eslint'],
       rules: {
         'spaced-comment': 0,
         '@html-eslint/indent': 0,
@@ -70,18 +119,36 @@ module.exports = {
             math: 'always',
           },
         ],
-        'prettier/prettier': 0,
+        'prettier/prettier': [2, { parser: 'vue' }],
       },
     },
     {
       files: ['*.svelte'],
       processor: 'svelte3/svelte3',
+      plugins: ['svelte3'],
       rules: {
         'import/first': 0,
         'import/no-duplicates': 0,
         'import/no-mutable-exports': 0,
         'import/no-unresolved': 0,
         'prettier/prettier': 0,
+      },
+    },
+    {
+      files: ['*.json', '*.jsonc', '*rc'],
+      extends: ['plugin:jsonc/all'],
+      parser: 'jsonc-eslint-parser',
+      plugins: ['json-format'],
+      rules: {
+        'prettier/prettier': [2, { parser: 'json' }],
+      },
+    },
+    {
+      files: ['*.json5'],
+      extends: ['plugin:jsonc/all'],
+      parser: 'jsonc-eslint-parser',
+      rules: {
+        'prettier/prettier': [2, { parser: 'json5' }],
       },
     },
   ],
@@ -259,20 +326,15 @@ module.exports = {
         ignore: ['README.md'],
       },
     ],
-    'prettier/prettier': [2],
+    'prettier/prettier': [2, { parser: 'babel' }],
   },
   plugins: [
     'import',
     'prettier',
-    'json-format',
     'css-modules',
-    '@html-eslint',
     'disable-autofix',
     '@babel',
-    'react',
-    'react-hooks',
     'unicorn',
-    'svelte3',
     'sonarjs',
     'github',
   ],
