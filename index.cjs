@@ -43,7 +43,7 @@ module.exports = {
       parser: 'toml-eslint-parser',
       extends: ['plugin:toml/standard'],
       rules: {
-        'prettier/prettier': [2],
+        'prettier/prettier': 0,
       },
     },
     {
