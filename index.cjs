@@ -49,7 +49,18 @@ module.exports = {
     {
       files: ['*.jsx'],
       extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
-      plugins: ['react', 'react-hooks'],
+      plugins: [
+        'react',
+        'react-hooks',
+        [
+          '@babel/plugin-transform-react-jsx',
+          {
+            pragma: 'h',
+            pragmaFrag: 'Fragment',
+          },
+        ],
+      ],
+
       parser: '@babel/eslint-parser',
       parserOptions: {
         requireConfigFile: false,
@@ -69,7 +80,7 @@ module.exports = {
             'airbnb',
           ],
         },
-     },
+      },
       rules: {
         'react/no-deprecated': 2,
         'react/react-in-jsx-scope': 0,
@@ -177,7 +188,7 @@ module.exports = {
             ],
           ],
         },
-     },
+      },
       rules: {
         'vue/html-self-closing': [
           2,
