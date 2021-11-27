@@ -191,7 +191,7 @@ module.exports = {
             math: 'always',
           },
         ],
-        'prettier/prettier': [2, { parser: 'vue' }],
+        'prettier/prettier': 0,
       },
     },
     {
