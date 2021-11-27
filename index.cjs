@@ -49,18 +49,28 @@ module.exports = {
     {
       files: ['*.jsx'],
       extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
-      plugins: [
-        'react',
-        'react-hooks',
-        [
-          '@babel/plugin-transform-react-jsx',
-          {
-            pragma: 'h',
-            pragmaFrag: 'Fragment',
-          },
-        ],
-      ],
-
+       babelOptions: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  node: 'current',
+                },
+              },
+            ],
+          ],
+          plugins: [
+            '@vue/babel-plugin-jsx',
+            [
+              '@babel/plugin-transform-react-jsx',
+              {
+                pragma: 'h',
+                pragmaFrag: 'Fragment',
+              },
+            ],
+          ],
+        },
       parser: '@babel/eslint-parser',
       parserOptions: {
         requireConfigFile: false,
@@ -178,7 +188,7 @@ module.exports = {
             ],
           ],
           plugins: [
-            '@vue/babel-plugin-jsx',
+            'react', 'react-hooks',
             [
               '@babel/plugin-transform-react-jsx',
               {
