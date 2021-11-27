@@ -131,6 +131,10 @@ module.exports = {
       },
     ],
     'import/extensions': ['error', 'always', { ignorePackages: true }],
+    'eslint-comments/no-use': [
+      'error',
+      { allow: ['eslint-disable', 'eslint-disable-next-line'] },
+    ],
     'import/no-commonjs': 0,
     'sort-imports': 0,
     'constructor-super': 2,
