@@ -1,6 +1,6 @@
 {
   "name": "@mikey-pro/eslint-config",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "Mikey Pro ESLint configuration",
   "main": "index.cjs",
   "dependencies": {
@@ -75,8 +75,8 @@
     "vue",
     "svelte"
   ],
-   "browserslist": [
-   "defaults"
+  "browserslist": [
+    "defaults"
   ],
   "contributors": [
     "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
