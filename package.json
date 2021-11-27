@@ -17,6 +17,7 @@
     "eslint-config-airbnb": "^19.0",
     "eslint-config-prettier": "^8.3",
     "eslint-config-standard": "^16.0.3",
+    "eslint-config-vue": "^2.0.2",
     "eslint-plugin-compat": "^4.0",
     "eslint-plugin-css-modules": "^2.11",
     "eslint-plugin-disable-autofix": "^0.1.6",
@@ -75,10 +76,10 @@
     "vue",
     "svelte"
   ],
-  "browserslist": [
-    "defaults"
-  ],
   "contributors": [
     "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
+  ],
+  "browserslist": [
+    "defaults"
   ]
 }
