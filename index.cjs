@@ -68,15 +68,6 @@ module.exports = {
             '@babel/preset-react',
             'airbnb',
           ],
-          plugins: [
-            [
-              '@babel/plugin-transform-react-jsx',
-              {
-                pragma: 'h',
-                pragmaFrag: 'Fragment',
-              },
-            ],
-          ],
         },
       },
       rules: {
@@ -91,15 +82,18 @@ module.exports = {
             allowArrowFunctions: true,
           },
         ],
-        'react/function-component-definition': 0,
-        'react/state-in-constructor': 0,
+        'react/no-string-refs': 2,
+        'react/no-find-dom-node': 2,
         'react/jsx-no-comment-textnodes': 2,
-        'react/jsx-no-duplicate-props': 2,
-        'react/jsx-no-target-blank': 2,
+        'react/jsx-curly-spacing': 2,
         'react/jsx-no-undef': 2,
-        'react/jsx-tag-spacing': [2, { beforeSelfClosing: 'always' }],
         'react/jsx-uses-react': 2,
         'react/jsx-uses-vars': 2,
+        'react/function-component-definition': 0,
+        'react/state-in-constructor': 0,
+        'react/jsx-no-duplicate-props': 2,
+        'react/jsx-no-target-blank': 2,
+        'react/jsx-tag-spacing': [2, { beforeSelfClosing: 'always' }],
         'react/jsx-key': [2, { checkFragmentShorthand: true }],
         'react/self-closing-comp': 2,
         'react/prefer-es6-class': 2,
@@ -108,9 +102,7 @@ module.exports = {
         'react/no-danger': 1,
         'react/no-did-mount-set-state': 2,
         'react/no-did-update-set-state': 2,
-        'react/no-find-dom-node': 2,
         'react/no-is-mounted': 2,
-        'react/no-string-refs': 2,
         'react-hooks/rules-of-hooks': 2,
         'react-hooks/exhaustive-deps': 1,
       },
@@ -159,7 +151,6 @@ module.exports = {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
       extends: ['plugin:vue/vue3-recommended', '@vue/airbnb'],
-      parser: '@babel/eslint-parser',
       parserOptions: {
         requireConfigFile: false,
         ecmaVersion: 'latest',
@@ -176,7 +167,7 @@ module.exports = {
             ],
           ],
           plugins: [
-            'react', 'react-hooks',
+            'eslint-plugin-vue',
             [
               '@babel/plugin-transform-react-jsx',
               {
@@ -283,6 +274,8 @@ module.exports = {
       'error',
       { allow: ['eslint-disable', 'eslint-disable-next-line'] },
     ],
+    'keyword-spacing': 2,
+    'require-atomic-updates': 0,
     'import/no-commonjs': 0,
     'sort-imports': 0,
     'constructor-super': 2,
@@ -399,6 +392,10 @@ module.exports = {
   settings: {
     'json/sort-package-json': 'pro',
     polyfills: ['Promise'],
+    react: {
+      pragma: 'h',
+      version: 'preact',
+    },
   },
   parser: '@babel/eslint-parser',
   parserOptions: {
