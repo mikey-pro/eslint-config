@@ -27,6 +27,7 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       extends: [
+        'airbnb-typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
@@ -41,8 +42,14 @@ module.exports = {
     {
       files: ['*.tsx'],
       parser: '@typescript-eslint/parser',
-      extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
-      plugins: ['react', 'react-hooks'],
+      extends: [
+        'airbnb-typescript',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+      plugins: ['@typescript-eslint', 'react', 'react-hooks'],
       parserOptions: {
         tsconfigRootDir: __dirname,
         project: ['../../../tsconfig.json'],
@@ -53,16 +60,11 @@ module.exports = {
           jsx: true,
         },
       },
-      plugins: ['@typescript-eslint'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      ],
       rules: {
         'import/named': 0,
         'import/namespace': 0,
         'import/default': 0,
-        'import/no-named-as-default-member': 0
+        'import/no-named-as-default-member': 0,
         'react/state-in-constructor': 0,
         'react/no-deprecated': 2,
         'react/react-in-jsx-scope': 0,
@@ -83,7 +85,6 @@ module.exports = {
         'react/jsx-uses-react': 2,
         'react/jsx-uses-vars': 2,
         'react/function-component-definition': 0,
-        'react/state-in-constructor': 0,
         'react/jsx-no-duplicate-props': 2,
         'react/jsx-no-target-blank': 2,
         'react/jsx-tag-spacing': [2, { beforeSelfClosing: 'always' }],
@@ -160,7 +161,6 @@ module.exports = {
         },
       },
       rules: {
-        'react/state-in-constructor': 0,
         'react/no-deprecated': 2,
         'react/react-in-jsx-scope': 0,
         'react/display-name': [1, { ignoreTranspilerName: false }],
@@ -493,9 +493,6 @@ module.exports = {
     react: {
       pragma: 'h',
       version: 'preact',
-    },
-    'import/resolver': {
-      typescript: {},
     },
   },
   parser: '@babel/eslint-parser',
