@@ -17,7 +17,7 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,
-        project: ['./tsconfig.json'],
+        project: ['../../../tsconfig.json'],
         sourceType: 'module',
         ecmaVersion: 'latest',
         ecmaFeatures: {
@@ -424,6 +424,11 @@ module.exports = {
     react: {
       pragma: 'h',
       version: 'preact',
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
     },
   },
   parser: '@babel/eslint-parser',

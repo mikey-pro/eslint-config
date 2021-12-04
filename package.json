@@ -19,6 +19,7 @@
     "eslint-config-airbnb": "^19.0",
     "eslint-config-prettier": "^8.3",
     "eslint-config-standard": "^16.0.3",
+    "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-compat": "^4.0",
     "eslint-plugin-css-modules": "^2.11",
     "eslint-plugin-disable-autofix": "^0.1.6",
