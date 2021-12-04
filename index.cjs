@@ -13,6 +13,27 @@ module.exports = {
   ],
   overrides: [
     {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        tsconfigRootDir: '../../../',
+        project: ['./tsconfig.json'],
+        sourceType: 'module',
+        ecmaVersion: 'latest',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+      rules: {
+        'prettier/prettier': [2, { parser: 'typescript' }],
+      },
+    },
+    {
       files: ['*.css'],
       rules: {
         'prettier/prettier': [2, { parser: 'css' }],
@@ -192,7 +213,7 @@ module.exports = {
           },
         ],
         'vue/component-tags-order': [
-          'error',
+          2,
           {
             order: [['script', 'template'], 'style'],
           },
@@ -395,6 +416,7 @@ module.exports = {
     '.vscode',
     '.github',
   ],
+  root: true,
   settings: {
     'json/sort-package-json': 'pro',
     polyfills: ['Promise'],
