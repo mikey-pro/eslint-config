@@ -92,6 +92,7 @@ module.exports = {
         },
       },
       rules: {
+        'react/state-in-constructor': 0,
         'react/no-deprecated': 2,
         'react/react-in-jsx-scope': 0,
         'react/display-name': [1, { ignoreTranspilerName: false }],
@@ -425,10 +426,8 @@ module.exports = {
       pragma: 'h',
       version: 'preact',
     },
-    settings: {
-      'import/resolver': {
-        typescript: {},
-      },
+    'import/resolver': {
+      typescript: {},
     },
   },
   parser: '@babel/eslint-parser',
