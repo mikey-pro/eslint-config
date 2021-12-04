@@ -16,7 +16,7 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        tsconfigRootDir: '../../../',
+        tsconfigRootDir: __dirname,
         project: ['./tsconfig.json'],
         sourceType: 'module',
         ecmaVersion: 'latest',
@@ -415,6 +415,7 @@ module.exports = {
     'LICENSE',
     '.vscode',
     '.github',
+    'tsconfig.json',
   ],
   root: true,
   settings: {
