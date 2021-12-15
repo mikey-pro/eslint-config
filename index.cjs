@@ -374,6 +374,13 @@ module.exports = {
       'error',
       { allow: ['eslint-disable', 'eslint-disable-next-line'] },
     ],
+    'prefer-destructuring': [
+      'error',
+      {
+        object: true,
+        array: false,
+      },
+    ],
     'keyword-spacing': 2,
     'require-atomic-updates': 0,
     'import/no-commonjs': 0,
