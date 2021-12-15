@@ -1,6 +1,6 @@
 {
   "name": "@mikey-pro/eslint-config",
-  "version": "3.2.8",
+  "version": "3.2.9",
   "description": "Mikey Pro ESLint configuration",
   "main": "index.cjs",
   "dependencies": {
