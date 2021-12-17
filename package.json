@@ -2,7 +2,7 @@
   "name": "@mikey-pro/eslint-config",
   "version": "3.2.10",
   "description": "Mikey Pro ESLint configuration",
-  "main": "index.cjs",
+  "main": "index.js",
   "dependencies": {
     "@babel/core": "^7.16.5",
     "@babel/eslint-parser": "^7.16",
@@ -47,7 +47,7 @@
     "eslint": ">=8.3.0"
   },
   "files": [
-    "index.cjs",
+    "index.js",
     "README.md",
     "LICENSE"
   ],
