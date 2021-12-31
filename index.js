@@ -1,6 +1,5 @@
 module.exports = {
   extends: [
-    'airbnb',
     'standard',
     'eslint:recommended',
     'plugin:unicorn/all',
@@ -27,7 +26,6 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       extends: [
-        'airbnb-typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
@@ -45,7 +43,6 @@ module.exports = {
       files: ['*.tsx'],
       parser: '@typescript-eslint/parser',
       extends: [
-        'airbnb-typescript',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'plugin:@typescript-eslint/recommended',
@@ -160,7 +157,6 @@ module.exports = {
               },
             ],
             '@babel/preset-react',
-            'airbnb',
           ],
         },
       },
@@ -244,7 +240,7 @@ module.exports = {
     {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
-      extends: ['plugin:vue/vue3-recommended', '@vue/airbnb'],
+      extends: ['plugin:vue/vue3-recommended'],
       parserOptions: {
         requireConfigFile: false,
         ecmaVersion: 'latest',
@@ -521,7 +517,6 @@ module.exports = {
             },
           },
         ],
-        'airbnb',
       ],
     },
   },
