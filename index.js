@@ -365,7 +365,7 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'import/extensions': ['error', 'always', { ignorePackages: true }],
+    'import/extensions': ['error', 'never', { ignorePackages: true }],
     'eslint-comments/no-use': [
       'error',
       { allow: ['eslint-disable', 'eslint-disable-next-line'] },
