@@ -3,7 +3,6 @@ module.exports = {
     'standard',
     'eslint:recommended',
     'plugin:unicorn/all',
-    'plugin:github/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:sonarjs/recommended',
     'plugin:compat/recommended',
@@ -482,7 +481,6 @@ module.exports = {
     '@babel',
     'unicorn',
     'sonarjs',
-    'github',
   ],
   ignorePatterns: [
     '!.*',
