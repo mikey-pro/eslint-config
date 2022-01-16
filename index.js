@@ -367,10 +367,6 @@ module.exports = {
       },
     ],
     'import/extensions': ['error', 'never', { ignorePackages: true }],
-    'eslint-comments/no-use': [
-      'error',
-      { allow: ['eslint-disable', 'eslint-disable-next-line'] },
-    ],
     'prefer-destructuring': [
       'error',
       {
