@@ -1,6 +1,5 @@
 module.exports = {
   extends: [
-    'standard',
     'react-app',
     'react-app/jest',
     'eslint:recommended',
