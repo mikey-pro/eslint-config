@@ -1,9 +1,10 @@
 module.exports = {
   extends: [
     'standard',
+    'react-app',
+    'react-app/jest',
     'eslint:recommended',
     'plugin:unicorn/all',
-    'plugin:jsx-a11y/recommended',
     'plugin:sonarjs/recommended',
     'plugin:compat/recommended',
     'plugin:css-modules/recommended',
@@ -12,22 +13,9 @@ module.exports = {
   overrides: [
     {
       files: ['*.ts'],
-      parser: '@typescript-eslint/parser',
       parserOptions: {
-        tsconfigRootDir: __dirname,
-        project: ['../../../tsconfig.json'],
         extraFileExtensions: ['.vue', '.svelte'],
-        sourceType: 'module',
-        ecmaVersion: 'latest',
-        ecmaFeatures: {
-          jsx: true,
-        },
       },
-      plugins: ['@typescript-eslint'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      ],
       rules: {
         'import/named': 0,
         'import/namespace': 0,
@@ -41,23 +29,8 @@ module.exports = {
     },
     {
       files: ['*.tsx'],
-      parser: '@typescript-eslint/parser',
-      extends: [
-        'plugin:react/recommended',
-        'plugin:react-hooks/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      ],
-      plugins: ['@typescript-eslint', 'react', 'react-hooks'],
       parserOptions: {
-        tsconfigRootDir: __dirname,
-        project: ['../../../tsconfig.json'],
         extraFileExtensions: ['.vue', '.svelte'],
-        sourceType: 'module',
-        ecmaVersion: 'latest',
-        ecmaFeatures: {
-          jsx: true,
-        },
       },
       rules: {
         'import/named': 0,
@@ -140,8 +113,6 @@ module.exports = {
     },
     {
       files: ['*.jsx'],
-      extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
-      plugins: ['react', 'react-hooks'],
       parser: '@babel/eslint-parser',
       parserOptions: {
         requireConfigFile: false,
@@ -470,7 +441,6 @@ module.exports = {
     'prettier/prettier': [2, { parser: 'babel' }],
   },
   plugins: [
-    'import',
     'prettier',
     'css-modules',
     'disable-autofix',
