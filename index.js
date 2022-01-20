@@ -1,7 +1,5 @@
 module.exports = {
   extends: [
-    'react-app',
-    'react-app/jest',
     'eslint:recommended',
     'plugin:unicorn/all',
     'plugin:sonarjs/recommended',
@@ -28,6 +26,7 @@ module.exports = {
     },
     {
       files: ['*.tsx'],
+      extends: ['react-app', 'react-app/jest'],
       parserOptions: {
         extraFileExtensions: ['.vue', '.svelte'],
       },
@@ -112,6 +111,7 @@ module.exports = {
     },
     {
       files: ['*.jsx'],
+      extends: ['react-app', 'react-app/jest'],
       parser: '@babel/eslint-parser',
       parserOptions: {
         requireConfigFile: false,
