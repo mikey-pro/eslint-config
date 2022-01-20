@@ -459,8 +459,6 @@ module.exports = {
     'tsconfig.json',
   ],
   root: true,
-  failOnError: false,
-  emitWarning: true,
   settings: {
     'json/sort-package-json': 'pro',
     polyfills: ['Promise'],
