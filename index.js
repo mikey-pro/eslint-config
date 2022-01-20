@@ -296,7 +296,7 @@ module.exports = {
     node: true,
     es6: true,
     commonjs: true,
-    es1011: true,
+    es2022: true,
   },
   rules: {
     'no-restricted-syntax': [
