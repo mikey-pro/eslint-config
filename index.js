@@ -446,6 +446,7 @@ module.exports = {
     '@babel',
     'unicorn',
     'sonarjs',
+    'only-warn',
   ],
   ignorePatterns: [
     '!.*',
