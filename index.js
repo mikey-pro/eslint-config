@@ -296,7 +296,7 @@ module.exports = {
     node: true,
     es6: true,
     commonjs: true,
-    es2022: true,
+    es2021: true,
   },
   rules: {
     'no-restricted-syntax': [
@@ -336,9 +336,9 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'import/extensions': ['error', 'never', { ignorePackages: true }],
+    'import/extensions': [1, 'never', { ignorePackages: true }],
     'prefer-destructuring': [
-      'error',
+      1,
       {
         object: true,
         array: false,
