@@ -10,9 +10,22 @@ module.exports = {
   overrides: [
     {
       files: ['*.ts'],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ['../../../tsconfig.json'],
         extraFileExtensions: ['.vue', '.svelte'],
+        sourceType: 'module',
+        ecmaVersion: 'latest',
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
       rules: {
         'import/named': 0,
         'import/namespace': 0,
@@ -112,25 +125,6 @@ module.exports = {
     {
       files: ['*.jsx'],
       extends: ['react-app', 'react-app/jest'],
-      parser: '@babel/eslint-parser',
-      parserOptions: {
-        requireConfigFile: false,
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        babelOptions: {
-          presets: [
-            [
-              '@babel/preset-env',
-              {
-                targets: {
-                  node: 'current',
-                },
-              },
-            ],
-            '@babel/preset-react',
-          ],
-        },
-      },
       rules: {
         'react/no-deprecated': 1,
         'react/react-in-jsx-scope': 0,
