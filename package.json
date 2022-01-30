@@ -4,15 +4,15 @@
   "description": "Mikey Pro ESLint configuration",
   "main": "index.js",
   "dependencies": {
-    "@babel/core": "^7.16.10",
+    "@babel/core": "^7.16.12",
     "@babel/eslint-parser": "^7.16",
     "@babel/eslint-plugin": "^7.16",
     "@babel/plugin-transform-react-jsx": "^7.16.7",
     "@babel/preset-env": "^7.16",
     "@html-eslint/eslint-plugin": "^0.13.1",
     "@html-eslint/parser": "^0.13.1",
-    "@typescript-eslint/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^5.10.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "eslint-config-prettier": "^8.3",
     "eslint-config-react-app": "^7.0.0",
@@ -21,7 +21,7 @@
     "eslint-plugin-css-modules": "^2.11",
     "eslint-plugin-disable-autofix": "^0.1.6",
     "eslint-plugin-json-format": "^2.0",
-    "eslint-plugin-jsonc": "^2.0.0",
+    "eslint-plugin-jsonc": "^2.1.0",
     "eslint-plugin-md": "^1.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-only-warn": "^1.0.3",
@@ -31,9 +31,9 @@
     "eslint-plugin-svelte3": "^3.4.0",
     "eslint-plugin-toml": "^0.3.0",
     "eslint-plugin-unicorn": "^40.1.0",
-    "eslint-plugin-vue": "^8.3",
+    "eslint-plugin-vue": "^8.4",
     "eslint-plugin-yaml": "^0.5.0",
-    "vue-eslint-parser": "^8.0"
+    "vue-eslint-parser": "^8.2"
   },
   "peerDependencies": {
     "eslint": ">=8.3.0"
