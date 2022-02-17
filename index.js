@@ -200,6 +200,10 @@ module.exports = {
       parser: 'jsonc-eslint-parser',
       plugins: ['json-format'],
       rules: {
+        'jsonc/sort-array-values': [
+          1,
+          { pathPattern: '.*', order: { type: 'asc' } },
+        ],
         'prettier/prettier': [1, { parser: 'json' }],
       },
     },
@@ -208,6 +212,10 @@ module.exports = {
       extends: ['plugin:jsonc/all'],
       parser: 'jsonc-eslint-parser',
       rules: {
+        'jsonc/sort-array-values': [
+          1,
+          { pathPattern: '.*', order: { type: 'asc' } },
+        ],
         'prettier/prettier': [1, { parser: 'json5' }],
       },
     },
