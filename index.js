@@ -196,26 +196,18 @@ module.exports = {
     },
     {
       files: ['*.json', '*.jsonc', '*rc'],
-      extends: ['plugin:jsonc/all'],
+      extends: ['plugin:jsonc/recommended-with-json'],
       parser: 'jsonc-eslint-parser',
       plugins: ['json-format'],
       rules: {
-        'jsonc/sort-array-values': [
-          1,
-          { pathPattern: '.*', order: { type: 'asc' } },
-        ],
         'prettier/prettier': [1, { parser: 'json' }],
       },
     },
     {
       files: ['*.json5'],
-      extends: ['plugin:jsonc/all'],
+      extends: ['plugin:jsonc/recommended-with-json5'],
       parser: 'jsonc-eslint-parser',
       rules: {
-        'jsonc/sort-array-values': [
-          1,
-          { pathPattern: '.*', order: { type: 'asc' } },
-        ],
         'prettier/prettier': [1, { parser: 'json5' }],
       },
     },
