@@ -11,7 +11,7 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,
@@ -36,22 +36,6 @@ module.exports = {
         'import/no-unresolved': 0,
         '@typescript-eslint/indent': 0,
         '@typescript-eslint/naming-convention': 0,
-        'prettier/prettier': [1, { parser: 'typescript' }],
-      },
-    },
-    {
-      files: ['*.tsx', '*.jsx'],
-      parserOptions: {
-        extraFileExtensions: ['.vue', '.svelte'],
-      },
-      rules: {
-        'import/named': 0,
-        'import/namespace': 0,
-        'import/default': 0,
-        'import/no-named-as-default-member': 0,
-        'import/no-unresolved': 0,
-        '@typescript-eslint/naming-convention': 0,
-        '@typescript-eslint/indent': 0,
         'prettier/prettier': [1, { parser: 'typescript' }],
       },
     },
