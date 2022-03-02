@@ -248,7 +248,6 @@ module.exports = {
     'class-methods-use-this': 1,
     'constructor-super': 1,
     'dot-notation': 1,
-    'filenames/match-regex': 1,
     'func-names': 1,
     'import/extensions': [1, 'never', { ignorePackages: true }],
     'import/no-commonjs': 1,
