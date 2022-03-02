@@ -397,7 +397,6 @@ module.exports = {
     'require-atomic-updates': 1,
     'rest-spread-spacing': 1,
     semi: 1,
-    'sort-imports': 1,
     'sort-keys-fix/sort-keys-fix': 1,
     'sort-vars': 1,
     'space-before-function-paren': [1, 'always'],
