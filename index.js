@@ -47,7 +47,6 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       rules: {
-        '@typescript-eslint/indent': 1,
         '@typescript-eslint/naming-convention': 1,
         'import/default': 1,
         'import/named': 1,
