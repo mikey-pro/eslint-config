@@ -396,7 +396,10 @@ module.exports = {
     'rest-spread-spacing': 1,
     semi: 1,
     'sort-vars': 1,
-    'space-before-function-paren': [1, 'always'],
+    'space-before-function-paren': [
+      1,
+      { anonymous: 'always', asyncArrow: 'always', named: 'never' },
+    ],
     'space-in-parens': [1, 'never'],
     'spaced-comment': [
       1,
