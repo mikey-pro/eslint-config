@@ -278,7 +278,6 @@ module.exports = {
     'no-empty': 1,
     'no-empty-pattern': 1,
     'no-extra-bind': 1,
-    'no-extra-parens': 1,
     'no-extra-semi': 1,
     'no-floating-decimal': 1,
     'no-iterator': 1,
