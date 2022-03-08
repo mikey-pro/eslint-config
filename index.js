@@ -355,7 +355,10 @@ module.exports = {
     'react-hooks/exhaustive-deps': 1,
     'react-hooks/rules-of-hooks': 1,
     'react/display-name': [1, { ignoreTranspilerName: false }],
-    'react/function-component-definition': 1,
+    'react/function-component-definition': [
+      1,
+      { namedComponents: 'arrow-function' },
+    ],
     'react/jsx-curly-spacing': 1,
     'react/jsx-key': [1, { checkFragmentShorthand: true }],
     'react/jsx-no-bind': [
