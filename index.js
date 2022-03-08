@@ -438,7 +438,6 @@ module.exports = {
     'json/sort-package-json': 'pro',
     polyfills: ['Promise'],
     react: {
-      pragma: 'h',
       version: 'detect',
     },
   },
