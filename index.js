@@ -381,7 +381,6 @@ module.exports = {
     'react/jsx-no-target-blank': 1,
     'react/jsx-no-undef': 1,
     'react/jsx-tag-spacing': [1, { beforeSelfClosing: 'always' }],
-    'react/jsx-uses-react': 1,
     'react/jsx-uses-vars': 1,
     'react/no-danger': 1,
     'react/no-deprecated': 1,
@@ -393,7 +392,6 @@ module.exports = {
     'filenames/match-regex': 0,
     'react/prefer-es6-class': 1,
     'react/prefer-stateless-function': 1,
-    'react/react-in-jsx-scope': 0,
     'react/require-render-return': 1,
     'react/self-closing-comp': [
       'error',
