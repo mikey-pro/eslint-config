@@ -143,6 +143,7 @@ module.exports = {
               {
                 pragma: 'h',
                 pragmaFrag: 'Fragment',
+                runtime: 'automatic',
               },
             ],
           ],
@@ -225,7 +226,12 @@ module.exports = {
             },
           },
         ],
-        '@babel/preset-react',
+        [
+          '@babel/preset-react',
+          {
+            runtime: 'automatic',
+          },
+        ],
       ],
     },
     ecmaVersion: 'latest',
