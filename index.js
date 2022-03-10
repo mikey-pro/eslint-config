@@ -47,7 +47,7 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       rules: {
-        '@typescript-eslint/naming-convention': 1,
+        '@typescript-eslint/naming-convention': 0,
         'import/default': 0,
         'import/named': 0,
         'import/namespace': 0,
