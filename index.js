@@ -193,6 +193,7 @@ module.exports = {
         'import/no-duplicates': 0,
         'import/no-mutable-exports': 0,
         'import/no-unresolved': 0,
+        'prettier/prettier': 0,
       },
     },
     {
