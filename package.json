@@ -22,7 +22,7 @@
     "eslint-plugin-disable-autofix": "^0.1.6",
     "eslint-plugin-json-format": "^2.0",
     "eslint-plugin-jsonc": "^2.3.0",
-    "eslint-plugin-md": "^1.0",
+    "eslint-plugin-markdownlint": "^0.3.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-prettier": "^4.0",

@@ -91,19 +91,10 @@ module.exports = {
       },
     },
     {
-      extends: ['plugin:md/recommended'],
       files: ['*.md'],
-      parser: 'markdown-eslint-parser',
+      extends: ['plugin:markdownlint/recommended'],
+      parser: 'eslint-plugin-markdownlint/parser',
       rules: {
-        'md/remark': [
-          1,
-          {
-            plugins: [
-              'preset-lint-markdown-style-guide',
-              ['lint-emphasis-marker', '_'],
-            ],
-          },
-        ],
         'prettier/prettier': [1, { parser: 'markdown' }],
       },
     },
