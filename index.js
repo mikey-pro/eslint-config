@@ -117,8 +117,8 @@ module.exports = {
           1,
           { selfClosing: 'always' },
         ],
-        'prettier/prettier': [1, { parser: 'html' }],
         'spaced-comment': 0,
+        'prettier/prettier': [1, { parser: 'html' }],
       },
     },
     {
