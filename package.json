@@ -19,7 +19,7 @@
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-compat": "^4.0",
     "eslint-plugin-css-modules": "^2.11",
-    "eslint-plugin-disable-autofix": "^2.12.0",
+    "eslint-plugin-disable-autofix": "^2.13.0",
     "eslint-plugin-json-format": "^2.0",
     "eslint-plugin-jsonc": "^2.3.0",
     "eslint-plugin-markdownlint": "^0.3.4",
