@@ -20,7 +20,6 @@
     "eslint-plugin-compat": "^4.0",
     "eslint-plugin-css-modules": "^2.11",
     "eslint-plugin-disable-autofix": "^3.0.0",
-    "eslint-plugin-json-format": "^2.0",
     "eslint-plugin-jsonc": "^2.3.0",
     "eslint-plugin-markdownlint": "^0.3.4",
     "eslint-plugin-node": "^11.1.0",
