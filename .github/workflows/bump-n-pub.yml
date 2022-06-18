@@ -20,55 +20,59 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
 
+  bump-package:
+    name: Package bump
+    runs-on: ubuntu-latest
+    needs: bump
+    env: 
+      TAG: ${{ needs.bump.outputs.tag }}
+    outputs:
+      tag: ${{ env.TAG }}
+      sha: ${{ steps.bump-package-steps.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Bump and push package.json
+        id: bump-package-steps
+        run: |
+          tmp=$(mktemp)
+          jq --arg version ${TAG:1} '.version = $version' package.json > '$tmp'
+          mv '$tmp' package.json
+          git config --global user.email "wolfemikl@gmail.com"
+          git config --global user.name "Mikl Wolfe"
+          git commit -am ${TAG:1}
+          git push origin main
+          echo ::set-output name=sha::$(git rev-parse origin/main)
+
   release:
     name: Release
     runs-on: ubuntu-latest
-    needs: bump
+    needs: bump-package
     permissions:
       contents: write
     env:
-      VERSION: ${{ needs.bump.outputs.tag }}
+      TAG: ${{ needs.bump-package.outputs.tag }}
+      SHA: ${{ needs.bump-package.outputs.sha }}
     outputs:
-      VERSION: ${{ env.VERSION }}
+      sha: ${{ env.SHA }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ env.SHA }}
       - name: Release new tag
         id: release-tag
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.VERSION }}
-          
-  package-bump:
-      name: Package bump
-      runs-on: ubuntu-latest
-      needs: release
-      env: 
-        VERSION: ${{ needs.release.outputs.VERSION }}
-      outputs:
-        SHA: ${{ steps.bump-package.outputs.SHA }}
-      steps:
-        - uses: actions/checkout@v3
-        - name: Bump and push package.json
-          id: bump-package
-          run: |
-            tmp=$(mktemp)
-            jq --arg version ${VERSION:1} '.version = $version' package.json > '$tmp'
-            mv '$tmp' package.json
-            git config --global user.email "wolfemikl@gmail.com"
-            git config --global user.name "Mikl Wolfe"
-            git commit -am ${VERSION:1}
-            git push origin main
-            echo ::set-output name=SHA::$(git rev-parse origin/main)
+          tag_name: ${{ env.TAG }}
           
   publish-github:
       name: Publish github
       runs-on: ubuntu-latest
-      needs: package-bump
+      needs: release
       permissions:
         contents: read
         packages: write
       env:
-        SHA: ${{ needs.package-bump.outputs.SHA }}
+        SHA: ${{ needs.release.outputs.sha }}
       steps:
         - uses: actions/checkout@v3
           with:
@@ -88,9 +92,9 @@ jobs:
   publish-npm:
       name: Publish npm
       runs-on: ubuntu-latest
-      needs: package-bump
+      needs: release
       env:
-        SHA: ${{ needs.package-bump.outputs.SHA }}
+        SHA: ${{ needs.release.outputs.sha }}
       steps:
         - uses: actions/checkout@v3
           with:
