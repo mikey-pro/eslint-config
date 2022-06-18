@@ -50,15 +50,15 @@ jobs:
         - uses: actions/checkout@v3
         - name: Bump and push package.json
           id: bump-package
-          run: 
+          run: |
             tmp=$(mktemp)
-            && jq --arg version ${VERSION:1} '.version = $version' package.json > '$tmp'
-            && mv '$tmp' package.json
-            && git config --global user.email "wolfemikl@gmail.com"
-            && git config --global user.name "Mikl Wolfe"
-            && git commit -am ${VERSION:1}
-            && git push origin main
-            && echo ::set-output name=SHA::$(git rev-parse origin/main)
+            jq --arg version ${VERSION:1} '.version = $version' package.json > '$tmp'
+            mv '$tmp' package.json
+            git config --global user.email "wolfemikl@gmail.com"
+            git config --global user.name "Mikl Wolfe"
+            git commit -am ${VERSION:1}
+            git push origin main
+            echo ::set-output name=SHA::$(git rev-parse origin/main)
           
   publish-github:
       name: Publish github
@@ -80,7 +80,8 @@ jobs:
             scope: '@mikey-pro'
         - name: Publish package to github
           id: github-steps
-          run: npm publish
+          run: |
+            npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -100,6 +101,22 @@ jobs:
             registry-url: 'https://registry.npmjs.org'
         - name: Publish package to npm
           id: npm-steps
-          run: npm publish --access public
+          run: |
+            npm publish --access public
           env:
              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  
+  dispatch:
+    name: Dispatch
+    runs-on: ubuntu-latest
+    needs: publish-npm
+    steps:
+      - run: |
+          curl \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \ 
+          -H "Authorization: token ${TOKEN}" \
+          https://api.github.com/repos/mikey-pro/style-guide/dispatches \
+          -d '{"event_type":"ncu","client_payload":{"unit":false,"integration":true}}'
+        env:
+          TOKEN: ${{ secrets.DISPATCH_TOKEN }}
