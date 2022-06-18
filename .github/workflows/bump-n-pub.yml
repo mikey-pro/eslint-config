@@ -111,12 +111,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish-npm
     steps:
-      - run: |
+      - name: Dispatch ncu update
+        id: dispatch-steps
+        env:
+          TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
           curl \
           -X POST \
           -H "Accept: application/vnd.github.v3+json" \ 
-          -H "Authorization: token ${TOKEN}" \
+          -H "Authorization: token <${TOKEN}>" \
           https://api.github.com/repos/mikey-pro/style-guide/dispatches \
           -d '{"event_type":"ncu","client_payload":{"unit":false,"integration":true}}'
-        env:
-          TOKEN: ${{ secrets.DISPATCH_TOKEN }}
