@@ -1,0 +1,105 @@
+name: Bump-N-Pub
+on:
+  push:
+    branches:
+      - main
+jobs:
+  bump:
+    name: Bump
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.bump-tag.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        id: bump-tag
+        uses: anothrNick/github-tag-action@1.39.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: bump
+    permissions:
+      contents: write
+    env:
+      VERSION: ${{ needs.bump.outputs.tag }}
+    outputs:
+      VERSION: ${{ env.VERSION }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Release new tag
+        id: release-tag
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          
+  package-bump:
+      name: Package bump
+      runs-on: ubuntu-latest
+      needs: release
+      env: 
+        VERSION: ${{ needs.release.outputs.VERSION }}
+      outputs:
+        SHA: ${{ steps.bump-package.outputs.SHA }}
+      steps:
+        - uses: actions/checkout@v3
+        - name: Bump and push package.json
+          id: bump-package
+          run: 
+            tmp=$(mktemp)
+            && jq --arg version ${VERSION:1} '.version = $version' package.json > '$tmp'
+            && mv '$tmp' package.json
+            && git config --global user.email "wolfemikl@gmail.com"
+            && git config --global user.name "Mikl Wolfe"
+            && git commit -am ${VERSION:1}
+            && git push origin main
+            && echo ::set-output name=SHA::$(git rev-parse origin/main)
+          
+  publish-github:
+      name: Publish github
+      runs-on: ubuntu-latest
+      needs: package-bump
+      permissions:
+        contents: read
+        packages: write
+      env:
+        SHA: ${{ needs.package-bump.outputs.SHA }}
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            ref: ${{ env.SHA }}
+        - uses: actions/setup-node@v3
+          with:
+            node-version: '16.x'
+            registry-url: 'https://npm.pkg.github.com'
+            scope: '@mikey-pro'
+        - name: Publish package to github
+          id: github-steps
+          run: npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-npm:
+      name: Publish npm
+      runs-on: ubuntu-latest
+      needs: package-bump
+      env:
+        SHA: ${{ needs.package-bump.outputs.SHA }}
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            ref: ${{ env.SHA }}
+        - uses: actions/setup-node@v3
+          with:
+            node-version: '16.x'
+            registry-url: 'https://registry.npmjs.org'
+        - name: Publish package to npm
+          id: npm-steps
+          run: npm publish --access public
+          env:
+             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
