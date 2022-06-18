@@ -61,11 +61,7 @@
     "config",
     "style-guide",
     "style",
-    "guide",
-    "react",
-    "preact",
-    "vue",
-    "svelte"
+    "guide"
   ],
   "contributors": [
     "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
