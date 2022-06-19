@@ -124,6 +124,6 @@ jobs:
           curl \
           -X POST \
           -H "Accept: application/vnd.github.v3+json" \ 
-          -u chiefmikey:${TOKEN}
+          -u chiefmikey:${TOKEN} \
           "https://api.github.com/repos/mikey-pro/style-guide/dispatches" \
           -d '{"event_type":"ncu","client_payload":{"unit":false,"integration":true}}'
