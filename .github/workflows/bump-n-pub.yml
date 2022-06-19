@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      
 jobs:
   bump:
     name: Bump
@@ -115,7 +116,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish-npm
     steps:
-      - name: Dispatch ncu update
+      - name: Dispatch to style-guide
         id: dispatch-steps
         env:
           TOKEN: ${{ secrets.DISPATCH_TOKEN }}
