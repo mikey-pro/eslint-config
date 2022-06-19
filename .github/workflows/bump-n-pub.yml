@@ -119,7 +119,6 @@ jobs:
         id: dispatch-steps
         env:
           TOKEN: ${{ secrets.DISPATCH_TOKEN }}
-          test: "test"
         run: |
           curl \
           -X POST \
