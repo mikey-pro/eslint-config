@@ -16,7 +16,7 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "eslint-config-prettier": "^8.5",
     "eslint-config-react-app": "^7.0.1",
-    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-import-resolver-typescript": "^3.1.0",
     "eslint-plugin-compat": "^4.0",
     "eslint-plugin-css-modules": "^2.11",
     "eslint-plugin-disable-autofix": "^3.0.0",
