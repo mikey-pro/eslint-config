@@ -1,0 +1,128 @@
+name: Bump-N-Pub
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  bump:
+    name: Bump
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.bump-tag.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        id: bump-tag
+        uses: anothrNick/github-tag-action@1.39.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+
+  bump-package:
+    name: Package bump
+    runs-on: ubuntu-latest
+    needs: bump
+    env: 
+      TAG: ${{ needs.bump.outputs.tag }}
+    outputs:
+      tag: ${{ env.TAG }}
+      sha: ${{ steps.bump-package-steps.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Bump and push package.json
+        id: bump-package-steps
+        run: |
+          tmp=$(mktemp)
+          jq --arg version ${TAG:1} '.version = $version' package.json > '$tmp'
+          mv '$tmp' package.json
+          git config --global user.email "wolfemikl@gmail.com"
+          git config --global user.name "Mikl Wolfe"
+          git commit -am ${TAG:1}
+          git push origin main
+          echo ::set-output name=sha::$(git rev-parse origin/main)
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: bump-package
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ needs.bump-package.outputs.tag }}
+      SHA: ${{ needs.bump-package.outputs.sha }}
+    outputs:
+      sha: ${{ env.SHA }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ env.SHA }}
+      - name: Release new tag
+        id: release-tag
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.TAG }}
+          
+  publish-github:
+      name: Publish github
+      runs-on: ubuntu-latest
+      needs: release
+      permissions:
+        contents: read
+        packages: write
+      env:
+        SHA: ${{ needs.release.outputs.sha }}
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            ref: ${{ env.SHA }}
+        - uses: actions/setup-node@v3
+          with:
+            node-version: '16.x'
+            registry-url: 'https://npm.pkg.github.com'
+            scope: '@mikey-pro'
+        - name: Publish package to github
+          id: github-steps
+          run: |
+            npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-npm:
+      name: Publish npm
+      runs-on: ubuntu-latest
+      needs: release
+      env:
+        SHA: ${{ needs.release.outputs.sha }}
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            ref: ${{ env.SHA }}
+        - uses: actions/setup-node@v3
+          with:
+            node-version: '16.x'
+            registry-url: 'https://registry.npmjs.org'
+        - name: Publish package to npm
+          id: npm-steps
+          run: |
+            npm publish --access public
+          env:
+             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  
+  dispatch:
+    name: Dispatch
+    runs-on: ubuntu-latest
+    needs: publish-npm
+    steps:
+      - name: Dispatch to style-guide
+        id: dispatch-steps
+        env:
+          TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          curl \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -u chiefmikey:${TOKEN} "https://api.github.com/repos/mikey-pro/style-guide/dispatches" \
+          -d '{"event_type":"ncu","client_payload":{"unit":false,"integration":true}}'

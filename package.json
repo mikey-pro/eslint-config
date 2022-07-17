@@ -1,6 +1,6 @@
 {
   "name": "@mikey-pro/eslint-config",
-  "version": "4.16.0",
+  "version": "4.32.0",
   "description": "Mikey Pro ESLint configuration",
   "main": "index.js",
   "dependencies": {
@@ -16,12 +16,12 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "eslint-config-prettier": "^8.5",
     "eslint-config-react-app": "^7.0.1",
-    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-import-resolver-typescript": "^3.1.0",
     "eslint-plugin-compat": "^4.0",
     "eslint-plugin-css-modules": "^2.11",
     "eslint-plugin-disable-autofix": "^3.0.0",
     "eslint-plugin-jsonc": "^2.3.0",
-    "eslint-plugin-markdownlint": "^0.3.4",
+    "eslint-plugin-markdownlint": "^0.4.0",
     "eslint-plugin-n": "^15.2.2",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-prettier": "^4.0",
@@ -29,13 +29,10 @@
     "eslint-plugin-sonarjs": "^0.13.0",
     "eslint-plugin-svelte3": "^4.0.0",
     "eslint-plugin-toml": "^0.3.1",
-    "eslint-plugin-unicorn": "^42.0.0",
+    "eslint-plugin-unicorn": "^43.0.0",
     "eslint-plugin-vue": "^9.1",
     "eslint-plugin-yaml": "^0.5.0",
     "vue-eslint-parser": "^9.0"
-  },
-  "peerDependencies": {
-    "eslint": ">=8.3.0"
   },
   "files": [
     "index.js",
@@ -64,11 +61,7 @@
     "config",
     "style-guide",
     "style",
-    "guide",
-    "react",
-    "preact",
-    "vue",
-    "svelte"
+    "guide"
   ],
   "contributors": [
     "Mikl Wolfe <wolfe@mikl.io> (https://mikl.io)"
